@@ -1,7 +1,9 @@
-import "./App.css";
-import ErrorBoundary from "./components/ErrorBoundary";
 import { RouterProvider } from "react-router-dom";
+
+import ErrorBoundary from "./components/ErrorBoundary";
 import { router } from "./router";
+
+import "./App.css";
 
 const App: React.FC = () => {
   return (
