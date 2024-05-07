@@ -2,20 +2,16 @@ import { AxiosError } from "axios";
 
 export interface IUserState {
   loading: boolean;
-  user?: UserResponseModel;
-  users?: UserResponseModel[];
+  user?: IUserResponse;
+  users?: IUserResponse[];
   error?: AxiosError<string>;
 }
 
-export class UserResponseModel {
-  public id?: number;
-  public firstName?: string;
-  public lastName?: string;
-  public email?: string;
-  public age?: number;
-  public address?: string;
-
-  constructor(props: UserResponseModel) {
-    Object.assign(this, props);
-  }
+export interface IUserResponse {
+  id: number;
+  firstName: string;
+  lastName: string;
+  email: string;
+  age: number;
+  address: string;
 }

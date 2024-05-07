@@ -1,30 +1,30 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { Layout, Menu, theme } from "antd";
 import { motion } from "framer-motion";
+import styled from "styled-components";
 
 import { RouteName, RoutePath } from "../../constants/routes";
 
-//import styled from "styled-components";
 import { IPageLayoutProps } from "./index.models";
 
 const { Footer, Header, Content } = Layout;
 
-// const Title = styled.h2`
-//   padding: 4em;
-//   background: papayawhip;
-// `;
+const Paragraph = styled.p`
+  font-size: 16px;
+  margin: 0;
+`;
 
-const items = Object.values(RoutePath).map(p => ({
-  key: p,
-  label: RouteName[p]
+const items = Object.values(RoutePath).map(val => ({
+  key: val,
+  label: RouteName[val]
 }));
 
 const PageLayout: React.FC<IPageLayoutProps> = props => {
+  const location = useLocation();
+  const navigate = useNavigate();
   const {
     token: { colorBgContainer, borderRadiusLG }
   } = theme.useToken();
-  const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <Layout>
@@ -34,7 +34,7 @@ const PageLayout: React.FC<IPageLayoutProps> = props => {
           mode="horizontal"
           selectedKeys={[location.pathname]}
           items={items}
-          style={{ flex: 1, minWidth: 0 }}
+          style={{ flex: 1, minWidth: 0, userSelect: "none" }}
           onClick={e => navigate(e.key)}
         />
       </Header>
@@ -59,7 +59,7 @@ const PageLayout: React.FC<IPageLayoutProps> = props => {
       </Content>
 
       <Footer style={{ textAlign: "center" }}>
-        PicsArt ©{new Date().getFullYear()}
+        <Paragraph>PicsArt ©{new Date().getFullYear()}</Paragraph>
       </Footer>
     </Layout>
   );

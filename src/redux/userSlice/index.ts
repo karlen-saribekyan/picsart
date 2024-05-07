@@ -4,7 +4,7 @@ import { AxiosError } from "axios";
 import { AppThunk } from "../store";
 
 import { USERS } from "./index.data";
-import { IUserState, UserResponseModel } from "./index.models";
+import { IUserResponse, IUserState } from "./index.models";
 
 const initialState: IUserState = {
   loading: false
@@ -17,13 +17,13 @@ export const userSlice = createSlice({
     fetchStarted: state => {
       state.loading = true;
     },
-    userListFulfilled: (state, action: PayloadAction<UserResponseModel[]>) => {
+    userListFulfilled: (state, action: PayloadAction<IUserResponse[]>) => {
       state.loading = false;
       state.users = action.payload;
     },
     userDetailsFulfilled: (
       state,
-      action: PayloadAction<UserResponseModel | undefined>
+      action: PayloadAction<IUserResponse | undefined>
     ) => {
       state.loading = false;
       state.user = action.payload;
@@ -41,7 +41,7 @@ export const userSlice = createSlice({
 export const userActions = userSlice.actions;
 
 export const fetchUsers =
-  (): AppThunk<Promise<UserResponseModel[] | undefined>> => async dispatch => {
+  (): AppThunk<Promise<IUserResponse[] | undefined>> => async dispatch => {
     try {
       dispatch(userActions.fetchStarted());
 
@@ -59,7 +59,7 @@ export const fetchUsers =
   };
 
 export const fetchUser =
-  (id: number): AppThunk<Promise<UserResponseModel | undefined>> =>
+  (id: number): AppThunk<Promise<IUserResponse | undefined>> =>
   async dispatch => {
     try {
       dispatch(userActions.fetchStarted());

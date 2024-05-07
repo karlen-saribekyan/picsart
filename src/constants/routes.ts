@@ -1,11 +1,11 @@
-export const RoutePath = {
+export const RoutePath = Object.freeze({
   HomePage: "/",
   UserListPage: "/users",
-  UserDetailsPage: "/user"
-};
+  UserDetailsPage: "/users/:id"
+});
 
-export const RouteName = {
+export const RouteName = Object.freeze({
   [RoutePath.HomePage]: "Home",
   [RoutePath.UserListPage]: "Users",
   [RoutePath.UserDetailsPage]: "User"
-};
+});
