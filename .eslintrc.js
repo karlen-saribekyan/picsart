@@ -31,6 +31,7 @@ module.exports = {
     "unused-imports"
   ],
   rules: {
+    "react/prop-types": "off",
     "no-unused-vars": "off", // or "@typescript-eslint/no-unused-vars": "off",
     "unused-imports/no-unused-imports": "error",
     "unused-imports/no-unused-vars": [
@@ -66,7 +67,7 @@ module.exports = {
         ]
       }
     ],
-    "simple-import-sort/exports": "error",
+    "simple-import-sort/exports": "error"
   },
   settings: {
     react: {

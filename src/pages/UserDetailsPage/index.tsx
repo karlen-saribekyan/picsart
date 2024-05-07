@@ -1,5 +1,7 @@
+import PageLayout from "../../components/PageLayout";
+
 const UserDetailsPage: React.FC = () => {
-  return <></>;
+  return <PageLayout>UserDetailsPage</PageLayout>;
 };
 
 export default UserDetailsPage;

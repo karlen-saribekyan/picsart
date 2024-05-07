@@ -9,11 +9,11 @@ import "./App.css";
 
 const App: React.FC = () => {
   return (
-    <ErrorBoundary>
-      <Provider store={store}>
+    <Provider store={store}>
+      <ErrorBoundary>
         <RouterProvider router={router} fallbackElement="Loading..." />
-      </Provider>
-    </ErrorBoundary>
+      </ErrorBoundary>
+    </Provider>
   );
 };
 
