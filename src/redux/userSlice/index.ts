@@ -45,8 +45,6 @@ export const fetchUsers =
     try {
       dispatch(userActions.fetchStarted());
 
-      // const { data } = await api.get<IUserResponse[]>("/users");
-
       dispatch(userActions.userListFulfilled(USERS));
 
       return USERS;
