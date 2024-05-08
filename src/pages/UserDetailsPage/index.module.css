@@ -2,3 +2,14 @@
   max-width: 400px;
   margin: 0 auto;
 }
+
+.img {
+  width: 100px;
+  height: 100px;
+}
+
+.header {
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid gray;
+}

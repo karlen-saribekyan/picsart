@@ -36,8 +36,21 @@ const UserDetailsPage: React.FC = () => {
     <PageLayout>
       {userId ? (
         <section>
-          <Link to={RoutePath.UserListPage}>{"< Back to User List"}</Link>
+          <div className={styles.header}>
+            <Link to={RoutePath.UserListPage}>{"< Back to User List"}</Link>
+          </div>
 
+          {/* 
+            Image can be optimized by following ways: 
+            Changing format, compressing, lazy loading, using srcSet, 
+            optimize img during build process via image-webpack-loader,
+            putting placeholder, ...
+          */}
+          <img
+            loading="lazy"
+            src={require("../../assets/user.webp")}
+            className={styles.img}
+          />
           <Text>
             Full Name: <Span>{`${user?.firstName} ${user?.lastName}`}</Span>
           </Text>
