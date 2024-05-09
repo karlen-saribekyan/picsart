@@ -5,8 +5,6 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { store } from "./redux/store";
 import { router } from "./router";
 
-import "./App.css";
-
 const App: React.FC = () => {
   return (
     <Provider store={store}>
